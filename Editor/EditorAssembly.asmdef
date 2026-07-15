@@ -1,0 +1,19 @@
+{
+    "name": "EditorAssembly",
+    "rootNamespace": "HH",
+    "references": [
+        "GUID:2790683054c70884ab522c43e9b07874",
+        "GUID:db8370aef24f17341bcb45c80bb8c13b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
