@@ -1,16 +1,14 @@
 {
-  "name": "com.oyagames.editor",
+  "name": "com.henryhouse.editor",
   "version": "0.1.0",
-  "displayName": "Øya Games Editor",
+  "displayName": "Henry's Unity Editor Utils",
   "description": "Reusable Editor extensions",
   "unity": "6000.0",
   "keywords": [
     "Editor",
-    "Attributes",
-    "Dont Publish",
-    "øyagames"
+    "Attributes"
   ],
   "author": {
-    "name": "Øya Games"
+    "name": "Henry House"
   }
 }
