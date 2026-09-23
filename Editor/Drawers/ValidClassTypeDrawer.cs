@@ -2,6 +2,7 @@
 #if UNITY_EDITOR
 namespace HH.Attributes.Editor
 {
+    using HH.Attributes;
     using UnityEditor;
     using UnityEngine;
 

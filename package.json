@@ -1,6 +1,6 @@
 {
   "name": "com.henryhouse.editor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "Henry's Unity Editor Utils",
   "description": "Reusable Editor extensions",
   "unity": "6000.0",

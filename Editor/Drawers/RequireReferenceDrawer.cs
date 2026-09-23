@@ -1,5 +1,6 @@
 namespace HH.Editor
 {
+    using HH.Attributes;
     using System;
     using System.Linq;
     using HH.Editor.Notices;
@@ -7,7 +8,7 @@ namespace HH.Editor
     using UnityEditor;
     using UnityEngine;
 
-    // [CustomPropertyDrawer(typeof(RequireReferenceAttribute))]
+    [CustomPropertyDrawer(typeof(RequireReferenceAttribute))]
     public class RequireReferenceData
     {
         public UnityEngine.Object SerializingObject { get; set; }
