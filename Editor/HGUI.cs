@@ -36,6 +36,45 @@ namespace HH.Editor
             // Add more types as needed
         };
 
+        private static readonly Dictionary<Type, Func<GUIContent, object, GUILayoutOption[], object>> LayoutMap = new()
+        {
+            { typeof(bool), (content, value, layoutOptions) => EditorGUILayout.Toggle(content, (bool)value, layoutOptions) },
+            { typeof(string), (content, value, layoutOptions) => EditorGUILayout.TextField(content, (string)value) },
+            { typeof(int), (content, value, layoutOptions) => EditorGUILayout.IntField(content, (int)value) },
+            { typeof(float), (content, value, layoutOptions) => EditorGUILayout.FloatField(content, (float)value) },
+            { typeof(long), (content, value, layoutOptions) => EditorGUILayout.LongField(content, (long)value) },
+            { typeof(double), (content, value, layoutOptions) => EditorGUILayout.DoubleField(content, (double)value) },
+            { typeof(Rect), (content, value, layoutOptions) => EditorGUILayout.RectField(content, (Rect)value) },
+            { typeof(Color), (content, value, layoutOptions) => EditorGUILayout.ColorField(content, (Color)value) },
+            { typeof(AnimationCurve), (content, value, layoutOptions) => EditorGUILayout.CurveField(content, (AnimationCurve)value) },
+            { typeof(Bounds), (content, value, layoutOptions) => EditorGUILayout.BoundsField(content, (Bounds)value) },
+            { typeof(BoundsInt), (content, value, layoutOptions) => EditorGUILayout.BoundsIntField(content, (BoundsInt)value) },
+            { typeof(Vector2), (content, value, layoutOptions) => EditorGUILayout.Vector2Field(content, (Vector2)value) },
+            { typeof(Vector3), (content, value, layoutOptions) => EditorGUILayout.Vector3Field(content, (Vector3)value) },
+            { typeof(Vector4), (content, value, layoutOptions) => EditorGUILayout.Vector4Field(content, (Vector4)value) },
+            { typeof(Gradient), (content, value, layoutOptions) => EditorGUILayout.GradientField(content, (Gradient)value) },
+            { typeof(Enum), (content, value, layoutOptions) => EditorGUILayout.EnumFlagsField(content, (Enum)value) },
+            { typeof(Vector2Int), (content, value, layoutOptions) => EditorGUILayout.Vector2IntField(content, (Vector2Int)value) },
+            { typeof(Vector3Int), (content, value, layoutOptions) => EditorGUILayout.Vector3IntField(content, (Vector3Int)value) },
+
+            // Add more types as needed
+        };
+
+        public static object DrawLayoutField<T>(T value, GUIContent content, GUILayoutOption[] layoutOptions)
+        {
+            return LayoutMap[typeof(T)](content, value, layoutOptions);
+        }
+
+        public static object DrawLayoutField(Type fieldType, object value, GUIContent content, GUILayoutOption[] layoutOptions)
+        {
+            return LayoutMap[fieldType](content, value, layoutOptions);
+        }
+
+        public static object DrawLayoutField(object value, GUIContent content, GUILayoutOption[] layoutOptions)
+        {
+            return LayoutMap[value.GetType()](content, value, layoutOptions);
+        }
+
         public static (bool IsExpanded, bool PrivateFields) ClassField(Rect position, GUIContent label, object data, bool isExpanded, bool includePrivateFields)
         {
             // Save the original indent level
